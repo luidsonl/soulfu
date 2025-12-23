@@ -25,7 +25,7 @@ int Event()
   self = FindSelf()
   STANDARD.DamageSoundEvent("FILE:-RAT01.RAW", NULL, NULL)
   STANDARD.Event()
-  STANDARD.LevelUpEvent(2, 0, 0, 3, 0)
+  STANDARD.LevelUpEvent(4, 0, 2, 4, 0)
   if(self.event == EVENT_HIT_WATER)
     // Spawn a helper...
     subtype = self.eqcol01>>6

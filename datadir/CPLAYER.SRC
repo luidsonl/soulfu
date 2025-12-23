@@ -949,7 +949,7 @@ int Event()
     MREGEN.Event()
   STANDARD.Event()
   STANDARD.JumpOutOfWaterEvent()
-  STANDARD.LevelUpEvent(5, 0, 0, 0, 0)
+  STANDARD.LevelUpEvent(10, 0, 0, 0, 0)
   if(self.class == CLASS_HEALER)
     self.hitstap = 0
 

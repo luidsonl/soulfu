@@ -29,12 +29,23 @@
 #define EXPERIENCE_VIRTUE_COURAGE      6
 
 
-#define MAX_LEVEL 10
-unsigned short level_experience_needed[MAX_LEVEL] = {0, 100, 250, 700, 1500, 2500, 4000, 5700, 7700, 10000};
-//unsigned short level_experience_needed[MAX_LEVEL] = {0, 200, 500, 900, 1400, 2000, 2700, 3500, 4400, 5400};
-//unsigned short level_experience_needed[MAX_LEVEL] = {0, 100, 300, 600, 1000, 1500, 2100, 2800, 3600, 4500};
-//unsigned short level_experience_needed[MAX_LEVEL] = {0, 100, 250, 450, 700, 1000, 1350, 1750, 2200, 2700};
-unsigned char  level_badges_needed[MAX_LEVEL] = {0, 0, 0, 0, 0, 1, 2, 3, 4, 5};
+#define MAX_LEVEL 32
+unsigned int level_experience_needed[MAX_LEVEL] = {
+    0, 100, 250, 450, 700, 1000, 1400, 1900, 2500, 3200,
+    4100, 5200, 6500, 8000, 9800, 11800, 14100, 16700, 19600, 22800,
+    26400, 30500, 35100, 40300, 46200, 52800, 60200, 68400, 77500, 87600,
+    98800, 111200
+};
+
+
+unsigned char level_badges_needed[MAX_LEVEL] = {
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    1, 1, 1, 1,
+    2, 2, 2, 2,
+    3, 3, 3, 3,
+    4, 4, 4, 4,
+    5, 5, 5, 5, 5, 5
+};
 
 
 //-----------------------------------------------------------------------------------------------
@@ -125,8 +136,8 @@ unsigned short experience_function_character(unsigned short character, unsigned 
                             character_data[73] = level+1;
                             if(paying_customer)
                             {
-                                // Paying customers get 5 stat points per level...
-                                character_data[74] += 5;
+                                // Paying customers get 10 stat points per level...
+                                character_data[74] += 10;
                             }
                             else
                             {

@@ -12,7 +12,7 @@ int Event()
   STANDARD.DamageSoundEvent("FILE:-BUGHIT.RAW", NULL, NULL)
   STANDARD.BumpDamageEvent(DAMAGE_EDGE, damage, 1, FALSE, TRUE)
   STANDARD.Event()
-  if(STANDARD.LevelUpEvent(3, 0, 0, 2, 0) == TRUE)
+  if(STANDARD.LevelUpEvent(4, 0, 2, 4, 0) == TRUE)
     // Change form...
     if(STANDARD.LevelUpChange("FILE:CGRUBMUM.RUN"))
       return TRUE

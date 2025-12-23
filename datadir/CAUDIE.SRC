@@ -334,9 +334,9 @@ int Event()
   STANDARD.Event()
   STANDARD.JumpOutOfWaterEvent()
   if(subtype == 0)
-    STANDARD.LevelUpEvent(3, 0, 1, 1, 0)
+    STANDARD.LevelUpEvent(6, 0, 2, 2, 0)
   else
-    STANDARD.LevelUpEvent(2, 2, 0, 0, 1)
+    STANDARD.LevelUpEvent(4, 4, 0, 0, 2)
 
 //-----------------------------------------------------------------------
 int FrameEvent()

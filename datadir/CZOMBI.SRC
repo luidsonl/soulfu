@@ -99,7 +99,7 @@ int Event()
           ModelSetup()
 
   if(self.event == EVENT_LEVEL_UP && self.team == TEAM_GOOD)
-    STANDARD.LevelUpEvent(5, 0, 0, 0, 0)
+    STANDARD.LevelUpEvent(6, 0, 4, 0, 0)
     if(IndexIsLocalPlayer(FindIndex(self)) || IndexIsLocalPlayer(self.owner))
       // Change form...
       if(subtype == 0 && self.level == 3)

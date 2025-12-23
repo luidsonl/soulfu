@@ -6,7 +6,7 @@ int ButtonEvent()
 int Event()
   STANDARD.DamageSoundEvent("FILE:-LUMP01.RAW", "FILE:-LUMP02.RAW", "FILE:-LUMP03.RAW")
   STANDARD.Event()
-  STANDARD.LevelUpEvent(2, 0, 0, 3, 0)
+  STANDARD.LevelUpEvent(4, 0, 3, 3, 0)
 
 
 //-----------------------------------------------------------------------

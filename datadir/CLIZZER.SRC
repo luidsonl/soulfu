@@ -39,7 +39,7 @@ int Event()
       
 
   STANDARD.Event()
-  STANDARD.LevelUpEvent(2, 0, 2, 1, 0)
+  STANDARD.LevelUpEvent(4, 0, 4, 2, 0)
 
 
 //-----------------------------------------------------------------------

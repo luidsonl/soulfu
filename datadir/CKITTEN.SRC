@@ -89,7 +89,7 @@ int Event()
     self.target = oldtarget
     return 0
   STANDARD.Event()
-  STANDARD.LevelUpEvent(2, 0, 1, 2, 0)
+  STANDARD.LevelUpEvent(4, 0, 2, 4, 0)
   if(self.event == EVENT_DAMAGED)
     if(self.daction == ACTION_STUN)
       self.evtimer = (self.evtimer >> 1) + 1

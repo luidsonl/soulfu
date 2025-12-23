@@ -17,7 +17,7 @@ int Event()
 //    PDUST.FullEffect(self.x, self.y, self.z, 0.05, 4.00, 0.40, 30, DUST_COLOR, 100, 192, 0, FALSE, 0)
 
   STANDARD.Event()
-  STANDARD.LevelUpEvent(5, 0, 0, 0, 0)
+  STANDARD.LevelUpEvent(10, 0, 0, 0, 0)
 
 //-----------------------------------------------------------------------
 int FrameEvent()

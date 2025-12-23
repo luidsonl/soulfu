@@ -120,7 +120,7 @@ int Event()
     self.vz = 0.60
   STANDARD.BumpDamageEvent(DAMAGE_EDGE, (2+subtype), 1, FALSE, TRUE)
   STANDARD.Event()
-  STANDARD.LevelUpEvent(3, 0, 0, 2, 0)
+  STANDARD.LevelUpEvent(4, 1, 1, 4, 0)
   if(self.action == ACTION_KNOCK_OUT_BEGIN)
     self.flags = (self.flags & (65535-CHAR_HOVER_ON)) | CHAR_GRAVITY_ON
     self.pttimer = petrify

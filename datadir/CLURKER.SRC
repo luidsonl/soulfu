@@ -68,7 +68,7 @@ int Event()
       self.pttimer = 100
       PlaySound("FILE:-STATU03.RAW", 256, 64)
   STANDARD.Event()
-  STANDARD.LevelUpEvent(5, 0, 0, 0, 0)
+  STANDARD.LevelUpEvent(10, 0, 0, 0, 0)
   if(self.event == EVENT_DAMAGED)
     if(self.daction == ACTION_STUN)
       self.vx = 0.0

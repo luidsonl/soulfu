@@ -34,7 +34,7 @@ int Event()
     if(subtype > 0)
       STANDARD.PoisonCharacter(self.target, FindIndex(self), (self.str<<5) + 200)
   STANDARD.Event()
-  STANDARD.LevelUpEvent(3, 0, 0, 2, 0)
+  STANDARD.LevelUpEvent(4, 0, 2, 4, 0)
   if(self.event == EVENT_DAMAGED)
     self.combo = 0
     if(self.daction == ACTION_STUN)

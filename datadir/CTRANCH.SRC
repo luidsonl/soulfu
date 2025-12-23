@@ -92,7 +92,7 @@ int Event()
     self.target = oldtarget
     return 0
   STANDARD.Event()
-  STANDARD.LevelUpEvent(3, 0, 0, 2, 0)
+  STANDARD.LevelUpEvent(4, 0, 2, 4, 0)
 
 
 

@@ -66,7 +66,7 @@ int Event()
           if(child)
             child.number = drain_amount
   STANDARD.Event()
-  STANDARD.LevelUpEvent(2, 0, 0, 3, 0)
+  STANDARD.LevelUpEvent(4, 0, 2, 4, 0)
   if(self.action == ACTION_KNOCK_OUT_BEGIN)
     self.flags = (self.flags & (65535-CHAR_HOVER_ON)) | CHAR_GRAVITY_ON
     self.pttimer = petrify

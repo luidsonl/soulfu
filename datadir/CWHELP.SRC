@@ -174,7 +174,7 @@ int Event()
 
   // Normal stuff...
   STANDARD.Event()
-  if(STANDARD.LevelUpEvent(2, 1, 0, 1, 1) == TRUE)
+  if(STANDARD.LevelUpEvent(4, 2, 0, 2, 2) == TRUE)
     // Change form...
     if(STANDARD.LevelUpChange("FILE:CDRAGON.RUN"))
       return TRUE

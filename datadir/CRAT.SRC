@@ -15,7 +15,7 @@ int Event()
       if(subtype == 2)
         STANDARD.PoisonCharacter(SystemGet(SYS_COLLISIONCHAR, 0, 0), FindIndex(self), 600)
   STANDARD.Event()
-  STANDARD.LevelUpEvent(3, 0, 0, 2, 0)
+  STANDARD.LevelUpEvent(6, 0, 0, 4, 0)
 
 //-----------------------------------------------------------------------
 int FrameEvent()

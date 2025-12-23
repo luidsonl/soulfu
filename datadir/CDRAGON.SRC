@@ -374,7 +374,7 @@ int Event()
           SystemSet(SYS_BUMPABORT, 0, 0, 0)
           return 0
   STANDARD.Event()
-  STANDARD.LevelUpEvent(2, 1, 0, 1, 1)
+  STANDARD.LevelUpEvent(3, 2, 1, 2, 2)
 
 
   // Boss Defeat stuff...

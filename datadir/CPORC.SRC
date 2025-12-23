@@ -101,7 +101,7 @@ int Event()
 
   // Default events...
   STANDARD.Event()
-  STANDARD.LevelUpEvent(3, 0, 1, 1, 0)
+  STANDARD.LevelUpEvent(6, 0, 2, 2, 0)
 
 //-----------------------------------------------------------------------
 int FrameEvent()

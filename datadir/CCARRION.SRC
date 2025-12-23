@@ -40,17 +40,23 @@ int ButtonEvent()
 
 //-----------------------------------------------------------------------
 int Event()
-  int self
+  int self, subtype
 
   self = FindSelf()
+  subtype = (self.eqcol01>>4) >> 2
+
   STANDARD.DamageSoundEvent("FILE:-CARR01.RAW", "FILE:-CARR02.RAW", "FILE:-CARR03.RAW")
   if(self.event == EVENT_PETRIFIED)
     if(self.flags & CHAR_HOVER_ON)
       self.flags = self.flags & (65535-CHAR_HOVER_ON)
       self.flags = self.flags | CHAR_GRAVITY_ON
     return 0
+
   STANDARD.Event()
-  STANDARD.LevelUpEvent(2, 0, 1, 1, 1)
+  if(subtype == 1)
+    STANDARD.LevelUpEvent(2, 4, 1, 1, 2)
+  else
+    STANDARD.LevelUpEvent(4, 0, 3, 3, 0)
 
 
 //-----------------------------------------------------------------------

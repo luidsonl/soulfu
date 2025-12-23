@@ -80,7 +80,7 @@ int Event()
             self.alpha = 64
           self.tetimer = 1
   STANDARD.Event()
-  STANDARD.LevelUpEvent(3, 0, 0, 2, 0)
+  STANDARD.LevelUpEvent(6, 0, 0, 4, 0)
   if(self.action == ACTION_KNOCK_OUT_BEGIN)
     self.evtimer = 20
     self.hoverz = self.z + 20.0

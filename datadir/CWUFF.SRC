@@ -149,7 +149,7 @@ int Event()
     self.target = oldtarget
     return 0
   STANDARD.Event()
-  STANDARD.LevelUpEvent(3, 0, 0, 2, 0)
+  STANDARD.LevelUpEvent(6, 0, 0, 4, 0)
   if(self.event == EVENT_DAMAGED)
     self.vspin = 768
     if(self.daction == ACTION_KNOCK_OUT && self.action == ACTION_KNOCK_OUT_STUN)

@@ -4,11 +4,16 @@ int ButtonEvent()
 
 //-----------------------------------------------------------------------
 int Event()
-  int self
+  int self, subtype
 
   self = FindSelf()
+  subtype = (self.eqcol01>>6)
+
   STANDARD.Event()
-  STANDARD.LevelUpEvent(3, 0, 0, 2, 0)
+  if(subtype == 2)
+    STANDARD.LevelUpEvent(2, 4, 1, 1, 2)
+  else
+    STANDARD.LevelUpEvent(4, 0, 3, 3, 0)
   STANDARD.JumpOutOfWaterEvent()
   self.eaction = 0
 
