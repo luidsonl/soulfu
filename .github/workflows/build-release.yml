@@ -1,0 +1,121 @@
+name: Build and Release
+
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - 'v*'
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install dependencies
+        run: |
+          sudo dpkg --add-architecture i386
+          sudo apt update
+          sudo apt install -y gcc-multilib libc6-dev:i386 libsdl2-dev:i386 libsdl2-net-dev:i386 libvorbis-dev:i386 libjpeg-dev:i386
+
+      - name: Build
+        run: |
+          PKG_CONFIG_PATH=/usr/lib/i386-linux-gnu/pkgconfig/ make
+
+      - name: Package
+        run: |
+          mkdir -p soulfu-linux
+          cp soulfu datafile.sdf soulfu-linux/
+          tar czf soulfu-linux.tar.gz soulfu-linux
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: soulfu-linux
+          path: soulfu-linux.tar.gz
+
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup MSYS2
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: MINGW32
+          install: >
+            git
+            make
+            mingw-w64-i686-gcc
+            mingw-w64-i686-binutils
+            mingw-w64-i686-pkgconf
+            mingw-w64-i686-SDL2
+            mingw-w64-i686-SDL2_net
+            mingw-w64-i686-libjpeg-turbo
+            mingw-w64-i686-libvorbis
+            mingw-w64-i686-libogg
+
+      - name: Fix windres naming
+        shell: msys2 {0}
+        run: |
+          ln -s /mingw32/bin/windres.exe /mingw32/bin/i686-w64-mingw32-windres.exe
+
+      - name: Build
+        shell: msys2 {0}
+        run: |
+          make -f Makefile.mingw
+
+      - name: Package
+        shell: cmd
+        run: |
+          mkdir soulfu-windows
+          copy soulfu.exe soulfu-windows\
+          copy datafile.sdf soulfu-windows\
+          copy C:\msys64\mingw32\bin\SDL2.dll soulfu-windows\
+          copy C:\msys64\mingw32\bin\SDL2_net.dll soulfu-windows\
+          copy C:\msys64\mingw32\bin\libvorbis-0.dll soulfu-windows\
+          copy C:\msys64\mingw32\bin\libvorbisfile-3.dll soulfu-windows\
+          copy C:\msys64\mingw32\bin\libogg-0.dll soulfu-windows\
+          copy C:\msys64\mingw32\bin\libjpeg-8.dll soulfu-windows\
+          powershell -Command "Compress-Archive -Path soulfu-windows -DestinationPath soulfu-windows.zip"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: soulfu-windows
+          path: soulfu-windows.zip
+
+  create-release:
+    needs: [build-linux, build-windows]
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+    permissions:
+      contents: write
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: Release ${{ github.ref_name }}
+          files: |
+            soulfu-linux/soulfu-linux.tar.gz
+            soulfu-windows/soulfu-windows.zip
+          body: |
+            ## SoulFu ${{ github.ref_name }}
+            
+            **Linux:** `soulfu-linux.tar.gz` (executable + datafile.sdf)
+            **Windows:** `soulfu-windows.zip` (executable + datafile.sdf + DLLs)
+            
+            Commit: ${{ github.sha }}

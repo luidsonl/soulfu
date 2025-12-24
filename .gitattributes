@@ -1,1 +1,10 @@
+# Force Unix line endings for all text files
+* text=auto eol=lf
+
+# Specifically for SoulFu source files
+*.SRC text eol=lf
 *.src text eol=lf
+*.txt text eol=lf
+*.md text eol=lf
+*.mk text eol=lf
+Makefile* text eol=lf
