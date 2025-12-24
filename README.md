@@ -2,6 +2,8 @@
 
 > A 3D action role-playing hack and slash dungeon crawler made by Aaron Bishop, the creator of Egoboo.
 
+> Forked from [szymor's github](https://github.com/szymor/soulfu)
+
 <div align="center">
 
 ![logo](soulfu_bftd.png)
