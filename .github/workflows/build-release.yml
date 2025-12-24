@@ -76,18 +76,20 @@ jobs:
           make -f Makefile.mingw
 
       - name: Package
-        shell: cmd
+        shell: msys2 {0}
         run: |
-          mkdir soulfu-windows
-          copy soulfu.exe soulfu-windows\
-          copy datafile.sdf soulfu-windows\
-          copy C:\msys64\mingw32\bin\SDL2.dll soulfu-windows\
-          copy C:\msys64\mingw32\bin\SDL2_net.dll soulfu-windows\
-          copy C:\msys64\mingw32\bin\libvorbis-0.dll soulfu-windows\
-          copy C:\msys64\mingw32\bin\libvorbisfile-3.dll soulfu-windows\
-          copy C:\msys64\mingw32\bin\libogg-0.dll soulfu-windows\
-          copy C:\msys64\mingw32\bin\libjpeg-8.dll soulfu-windows\
-          powershell -Command "Compress-Archive -Path soulfu-windows -DestinationPath soulfu-windows.zip"
+          mkdir -p soulfu_package
+          
+          cp soulfu.exe soulfu_package/
+          cp datafile.sdf soulfu_package/
+          cp /mingw32/bin/SDL2.dll soulfu_package/
+          cp /mingw32/bin/SDL2_net.dll soulfu_package/
+          cp /mingw32/bin/libvorbis-0.dll soulfu_package/
+          cp /mingw32/bin/libvorbisfile-3.dll soulfu_package/
+          cp /mingw32/bin/libogg-0.dll soulfu_package/
+          cp /mingw32/bin/libjpeg-8.dll soulfu_package/
+          
+          zip -r soulfu-windows.zip soulfu_package/
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
