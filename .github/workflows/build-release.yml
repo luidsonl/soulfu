@@ -90,7 +90,8 @@ jobs:
           cp /mingw32/bin/libogg-0.dll soulfu_package/
           cp /mingw32/bin/libjpeg-8.dll soulfu_package/
           
-          zip -r soulfu-windows.zip soulfu_package/
+          cd soulfu_package
+          zip -r ../soulfu-windows.zip *
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
