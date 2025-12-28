@@ -41,66 +41,8 @@ jobs:
           name: soulfu-linux
           path: soulfu-linux.tar.gz
 
-  build-windows:
-    runs-on: windows-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          submodules: recursive
-
-      - name: Setup MSYS2
-        uses: msys2/setup-msys2@v2
-        with:
-          msystem: MINGW32
-          install: >
-            git
-            make
-            zip
-            mingw-w64-i686-gcc
-            mingw-w64-i686-binutils
-            mingw-w64-i686-pkgconf
-            mingw-w64-i686-SDL2
-            mingw-w64-i686-SDL2_net
-            mingw-w64-i686-libjpeg-turbo
-            mingw-w64-i686-libvorbis
-            mingw-w64-i686-libogg
-
-      - name: Fix windres naming
-        shell: msys2 {0}
-        run: |
-          ln -s /mingw32/bin/windres.exe /mingw32/bin/i686-w64-mingw32-windres.exe
-
-      - name: Build
-        shell: msys2 {0}
-        run: |
-          make -f Makefile.mingw
-
-      - name: Package
-        shell: msys2 {0}
-        run: |
-          mkdir -p soulfu_package
-          
-          cp soulfu.exe soulfu_package/
-          cp datafile.sdf soulfu_package/
-          cp /mingw32/bin/SDL2.dll soulfu_package/
-          cp /mingw32/bin/SDL2_net.dll soulfu_package/
-          cp /mingw32/bin/libvorbis-0.dll soulfu_package/
-          cp /mingw32/bin/libvorbisfile-3.dll soulfu_package/
-          cp /mingw32/bin/libogg-0.dll soulfu_package/
-          cp /mingw32/bin/libjpeg-8.dll soulfu_package/
-          
-          cd soulfu_package
-          zip -r ../soulfu-windows.zip *
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: soulfu-windows
-          path: soulfu-windows.zip
-
   create-release:
-    needs: [build-linux, build-windows]
+    needs: [build-linux]
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/')
     permissions:
@@ -115,11 +57,9 @@ jobs:
           name: Release ${{ github.ref_name }}
           files: |
             soulfu-linux/soulfu-linux.tar.gz
-            soulfu-windows/soulfu-windows.zip
           body: |
             ## SoulFu ${{ github.ref_name }}
             
             **Linux:** `soulfu-linux.tar.gz` (executable + datafile.sdf)
-            **Windows:** `soulfu-windows.zip` (executable + datafile.sdf + DLLs)
             
             Commit: ${{ github.sha }}
