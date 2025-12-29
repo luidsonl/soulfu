@@ -202,7 +202,7 @@ int Spawn()
     if(RollDice(1, 20)&1)
       self.eqleft = ITEM_BOW
       self.eqright = ITEM_SHORT_SWORD
-      self.item00 = ITEM_QUIVER_10
+      self.item00 = ITEM_QUIVER_50
     else
       self.eqleft = ITEM_SHIELD
       if(RollDice(1, 20)&1)
@@ -214,9 +214,9 @@ int Spawn()
     if(RollDice(1, 20)&1)
       self.eqleft = ITEM_LONG_BOW
       self.eqright = ITEM_SWORD
-      self.item00 = ITEM_QUIVER_10
-      self.item01 = ITEM_QUIVER_10
-      self.item02 = ITEM_QUIVER_10
+      self.item00 = ITEM_QUIVER_50
+      self.item01 = ITEM_QUIVER_50
+      self.item02 = ITEM_QUIVER_50
     else
       self.eqleft = ITEM_MIRROR_SHIELD
       if(RollDice(1, 20)&1)

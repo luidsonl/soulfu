@@ -118,7 +118,7 @@ int Event()
         while(i < 246)
           if(i != 240 && i != 241)
             item_type = FileReadByte(self, i)
-            if(item_type >= ITEM_QUIVER_10 && item_type <= ITEM_QUIVER_1)
+            if(item_type >= ITEM_QUIVER_50 && item_type <= ITEM_QUIVER_1)
               found = TRUE
               i = 255
           i++

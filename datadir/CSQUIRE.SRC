@@ -615,7 +615,7 @@ int AIUseBow()
         while(i < 246)
           if(i != 240 && i != 241)
             target = FileReadByte(self, i)
-            if(target >= ITEM_QUIVER_10 && target <= ITEM_QUIVER_1)
+            if(target >= ITEM_QUIVER_50 && target <= ITEM_QUIVER_1)
               found = TRUE
               i = 255
           i++

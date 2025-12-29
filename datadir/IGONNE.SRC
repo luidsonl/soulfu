@@ -66,7 +66,7 @@ int Event()
         while(i < 246)
           if(i != 240 && i != 241)
             item_type = FileReadByte(self, i)
-            if(item_type >= ITEM_AMMO_10 && item_type <= ITEM_AMMO_1)
+            if(item_type >= ITEM_AMMO_50 && item_type <= ITEM_AMMO_1)
               found = TRUE
               // Long reload on odd shots
               if(item_type & 1)

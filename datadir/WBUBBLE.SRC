@@ -45,7 +45,7 @@ Spawn()
     else
       self.eqright = ITEM_HATCHET
   if(RollDice(1, 100) < 50)
-    self.eqright = ITEM_QUIVER_10
+    self.eqright = ITEM_QUIVER_50
     self.eqleft = ITEM_BOW
   else
     if(RollDice(1, 100) < 50)

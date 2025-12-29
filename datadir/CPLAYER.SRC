@@ -1100,15 +1100,15 @@ int Spawn()
     self.eqleft = ITEM_HAMMER
     self.eqright = ITEM_GONNE
     self.item01 = ITEM_TINKER
-    self.item02 = ITEM_AMMO_10
-    self.item03 = ITEM_AMMO_10
-    self.item04 = ITEM_AMMO_10
+    self.item02 = ITEM_AMMO_50
+    self.item03 = ITEM_AMMO_50
+    self.item04 = ITEM_AMMO_50
     self.item05 = ITEM_FOOD
   if(self.class == CLASS_ELF)
     self.eqright = ITEM_DAGGER
     self.eqleft = ITEM_BOW|ARMOR_VARIANT_MAGIC
-    self.item01 = ITEM_QUIVER_10
-    self.item02 = ITEM_QUIVER_10
+    self.item01 = ITEM_QUIVER_50
+    self.item02 = ITEM_QUIVER_50
     self.item03 = ITEM_FOOD
     self.item04 = ITEM_TRIPE
     self.item05 = ITEM_TRIPE

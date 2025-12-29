@@ -233,18 +233,18 @@ int Spawn()
     self.money = RollDice(1, 30) + 100
     self.eqleft = ITEM_BOW
     self.eqright = ITEM_DAGGER
-    self.item00 = ITEM_QUIVER_10
-    self.item01 = ITEM_QUIVER_10
+    self.item00 = ITEM_QUIVER_50
+    self.item01 = ITEM_QUIVER_50
   if(subtype == 1)
     self.money = RollDice(1, 50) + 200
     if(self.str < 20)
       self.str = 20
     self.eqleft = ITEM_LONG_BOW
     self.eqright = ITEM_DAGGER
-    self.item00 = ITEM_QUIVER_10
-    self.item01 = ITEM_QUIVER_10
-    self.item02 = ITEM_QUIVER_10
-    self.item03 = ITEM_QUIVER_10
+    self.item00 = ITEM_QUIVER_50
+    self.item01 = ITEM_QUIVER_50
+    self.item02 = ITEM_QUIVER_50
+    self.item03 = ITEM_QUIVER_50
   if(subtype == 2)
     self.money = RollDice(1, 70) + 300
     self.manamax = 30
@@ -265,12 +265,12 @@ int Spawn()
     self.eqright = ITEM_WAR_HAMMER
     self.defice = 2
     self.deffire = 2
-    self.item00 = ITEM_QUIVER_10
-    self.item01 = ITEM_QUIVER_10
-    self.item02 = ITEM_QUIVER_10
-    self.item03 = ITEM_QUIVER_10
-    self.item04 = ITEM_QUIVER_10
-    self.item05 = ITEM_QUIVER_10
+    self.item00 = ITEM_QUIVER_50
+    self.item01 = ITEM_QUIVER_50
+    self.item02 = ITEM_QUIVER_50
+    self.item03 = ITEM_QUIVER_50
+    self.item04 = ITEM_QUIVER_50
+    self.item05 = ITEM_QUIVER_50
 
   STANDARD.FixStats(self)
   ModelSetup()

@@ -331,7 +331,7 @@ int Effect(int type, float vx, float vy, float vz, int cost_arrow)
     while(i < 246)
       if(i != 240 && i != 241)
         item_type = FileReadByte(self, i)
-        if(item_type >= ITEM_QUIVER_10 && item_type <= ITEM_QUIVER_1)
+        if(item_type >= ITEM_QUIVER_50 && item_type <= ITEM_QUIVER_1)
           found = TRUE
           if(item_type == ITEM_QUIVER_1)
             item_type = ITEM_NONE

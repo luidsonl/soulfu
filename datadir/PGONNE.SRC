@@ -94,7 +94,7 @@ int Refresh()
       while(i < 246)
         if(i != 240 && i != 241)
           item_type = FileReadByte(owner, i)
-          if(item_type >= ITEM_AMMO_10 && item_type <= ITEM_AMMO_1)
+          if(item_type >= ITEM_AMMO_50 && item_type <= ITEM_AMMO_1)
             found = TRUE
             if(item_type == ITEM_AMMO_1)
               item_type = ITEM_NONE

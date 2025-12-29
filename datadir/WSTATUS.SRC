@@ -9,7 +9,7 @@
 #define CHEAT_ITEM_05  (ITEM_RING)
 #define CHEAT_ITEM_06  (ITEM_DAGGER+((RollDice(1, 6)-1)<<3) | CHEAT_WEAPON_VARIANT)
 #define CHEAT_ITEM_07  (ITEM_HAMMER+((RollDice(1, 6)-1)<<3) | CHEAT_WEAPON_VARIANT)
-#define CHEAT_ITEM_08  (ITEM_QUIVER_10)
+#define CHEAT_ITEM_08  (ITEM_QUIVER_50)
 #define CHEAT_ITEM_09  (ITEM_HEAL + RollDice(1, 4) - 1)
 #define CHEAT_ITEM_10  (ITEM_BOOK_5 + RollDice(1, 5) - 1)
 #define CHEAT_ITEM_11  (ITEM_ONE_UP)

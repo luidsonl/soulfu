@@ -206,7 +206,7 @@ int AIScript()
     while(i < 246)
       if(i != 240 && i != 241)
         item_type = FileReadByte(self, i)
-        if(item_type >= ITEM_QUIVER_10 && item_type <= ITEM_QUIVER_1)
+        if(item_type >= ITEM_QUIVER_50 && item_type <= ITEM_QUIVER_1)
           found = TRUE
           i = 255
       i++
@@ -350,8 +350,8 @@ int Spawn()
   if(subtype == 0)
     self.eqleft = ITEM_BOW
     self.item00 = ITEM_SHORT_SWORD
-    self.item01 = ITEM_QUIVER_10+RollDice(1, 10)-1
-    self.item02 = ITEM_QUIVER_10+RollDice(1, 10)-1
+    self.item01 = ITEM_QUIVER_50+RollDice(1, 10)-1
+    self.item02 = ITEM_QUIVER_50+RollDice(1, 10)-1
     if(self.dex < 10)
       self.dex = 10
   if(subtype == 1)
@@ -378,10 +378,10 @@ int Spawn()
   if(subtype == 2)
     self.eqleft = ITEM_LONG_BOW
     self.item00 = ITEM_SWORD
-    self.item01 = ITEM_QUIVER_10+RollDice(1, 10)-1
-    self.item02 = ITEM_QUIVER_10+RollDice(1, 10)-1
-    self.item03 = ITEM_QUIVER_10+RollDice(1, 10)-1
-    self.item04 = ITEM_QUIVER_10+RollDice(1, 10)-1
+    self.item01 = ITEM_QUIVER_50+RollDice(1, 10)-1
+    self.item02 = ITEM_QUIVER_50+RollDice(1, 10)-1
+    self.item03 = ITEM_QUIVER_50+RollDice(1, 10)-1
+    self.item04 = ITEM_QUIVER_50+RollDice(1, 10)-1
     if(self.dex < 15)
       self.dex = 15
   if(subtype == 3)

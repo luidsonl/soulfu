@@ -20,7 +20,7 @@ int ButtonEvent()
         if(self.rltimer == 0)
           if(self.eqcol23 < 160)
 //            // Cost us one ammo to fire...
-//            if(CharacterHasItem(rider, ITEM_AMMO_10, TRUE))
+//            if(CharacterHasItem(rider, ITEM_AMMO_50, TRUE))
 
             // Safe to fire...  Heat up a little...
             self.rltimer = 10
