@@ -19,7 +19,7 @@ int Effect(int self)
     if(self.food > 0)
       ExperienceFunction(FindIndex(self), EXPERIENCE_VIRTUE_FAITH, -25, FALSE)
       // Feed the character...
-      self.food = self.food + 24000
+      self.food = self.food + 34000
       if(self.food > MAX_FOOD)
         self.food = MAX_FOOD
 

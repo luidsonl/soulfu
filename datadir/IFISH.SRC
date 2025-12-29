@@ -12,7 +12,7 @@ int Effect(int self)
     PlaySound("FILE:-EAT.RAW", 256, 255)
     if(self.food > 0)
       // Feed the character...
-      self.food = self.food + 12000
+      self.food = self.food + 22000
       if(self.food > MAX_FOOD)
         self.food = MAX_FOOD
 

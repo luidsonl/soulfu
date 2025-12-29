@@ -12,7 +12,7 @@ int Effect(int self)
     Spawn(WINDOW, 400.0, 300.0, 1.0, "FILE:WCOOKIE.RUN")
 
     if(self.food > 0)
-      self.food = self.food + 1500
+      self.food = self.food + 2500
       if(self.food > MAX_FOOD)
         self.food = MAX_FOOD
 

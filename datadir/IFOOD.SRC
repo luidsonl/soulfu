@@ -9,7 +9,7 @@ int Effect(int self)
     PlaySound("FILE:-EAT.RAW", 256, 255)
     if(self.food > 0)
       // Feed the character...
-      self.food = self.food + 24000
+      self.food = self.food + 34000
       if(self.food > MAX_FOOD)
         self.food = MAX_FOOD
 
