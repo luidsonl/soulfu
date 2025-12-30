@@ -1,0 +1,6 @@
+ssc
+*.exe
+*.o
+*.RUN
+*.SRC
+sfd/
