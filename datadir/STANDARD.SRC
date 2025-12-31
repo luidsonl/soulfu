@@ -1843,7 +1843,7 @@ int AIScript()
 
 
   if(self.daction == ACTION_KNOCK_OUT)
-    if(self.aistate == STANDARD_AISTATE_WANDER || self.aistate == STANDARD_AISTATE_STAND || self.aistate == STANDARD_AISTATE_CHARGE || STANDARD_AISTATE_DOOR)
+    if(self.aistate == STANDARD_AISTATE_WANDER || self.aistate == STANDARD_AISTATE_STAND || self.aistate == STANDARD_AISTATE_CHARGE || self.aistate == STANDARD_AISTATE_DOOR || self.aistate == STANDARD_AISTATE_SEARCH)
       self.aistate = STANDARD_AISTATE_ATTACK
 
   // Stand your ground...
@@ -1869,7 +1869,7 @@ int AIScript()
         self.gotoy = target.y
 
   // Charge towards target...
-  if(self.aistate == STANDARD_AISTATE_ATTACK || self.aistate == STANDARD_AISTATE_ATTACK_FOLLOW || self.aistate == STANDARD_AISTATE_CHARGE)
+  if(self.aistate == STANDARD_AISTATE_ATTACK || self.aistate == STANDARD_AISTATE_ATTACK_FOLLOW || self.aistate == STANDARD_AISTATE_CHARGE || self.aistate == STANDARD_AISTATE_SEARCH)
     self.target = AcquireTarget(ACQUIRE_SEE_BEHIND | ACQUIRE_SEE_ENEMY, NULL, 500.0)
     target = FindTarget()
     if(target)
@@ -1954,7 +1954,7 @@ int AIScript()
             if (AIIsStuck())
               ButtonPress(BUTTON_PRESS, BUTTON_SPECIAL1, 0)
             // Randomly break off attack...
-            if(self.aistate != STANDARD_AISTATE_CHARGE && RollDice(1, 100) > 80)
+            if(self.aistate != STANDARD_AISTATE_CHARGE && self.aistate != STANDARD_AISTATE_SEARCH && RollDice(1, 100) > 80)
               self.aistate = STANDARD_AISTATE_WANDER
               if(self.aistate == STANDARD_AISTATE_ATTACK_FOLLOW)
                 self.aistate = STANDARD_AISTATE_FOLLOW

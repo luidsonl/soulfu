@@ -10,6 +10,7 @@
 #define STANDARD_AISTATE_STAND         6
 #define STANDARD_AISTATE_CHARGE        7
 #define STANDARD_AISTATE_DOOR          8
+#define STANDARD_AISTATE_SEARCH        9
 
 // Teams...
 #define TEAM_NEUTRAL   0 // Default team

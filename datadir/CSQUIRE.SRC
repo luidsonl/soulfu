@@ -413,10 +413,13 @@ int AnotherPlayerNeedsHelp()
     i++
   return FALSE
 
-int ContainerIsSafe(int target, int target_script)
+int ShouldDestroyContainer(int target, int target_script)
   int self
 
   self = FindSelf()
+
+  if(self.aistate != STANDARD_AISTATE_SEARCH)
+    return FALSE
 
   // Determine if the container is safe to be destroyed
   if(LocalPlayerIsClass(CLASS_HUBBIN)==TRUE)
@@ -523,8 +526,8 @@ int CollectHeart(int attack)
         if(target)
           // Is it a crate, barrel or statue?
           target_script = SystemGet(SYS_CHARACTERSCRIPTFILE, 0, i)
-          if(target_script == "FILE:CCRATE.RUN" || target_script == "FILE:CBARREL.RUN" || target_script == "FILE:CSTATUE.RUN")
-            if(ContainerIsSafe(target, target_script) == TRUE)
+          if(ShouldDestroyContainer(target, target_script) == TRUE)
+            if(target_script == "FILE:CCRATE.RUN" || target_script == "FILE:CBARREL.RUN" || target_script == "FILE:CSTATUE.RUN")
               // We'll ignore non-statue containers if the HP is too low. It might be a trap!
               if(target.hits > 0)
                 x = self.x - target.x
@@ -607,7 +610,7 @@ int AIUseBow()
   if (mount)
     return FALSE
 
-  if (self.aistate == STANDARD_AISTATE_CHARGE || self.aistate == STANDARD_AISTATE_ATTACK || self.aistate == STANDARD_AISTATE_ATTACK_FOLLOW)
+  if (self.aistate == STANDARD_AISTATE_CHARGE || self.aistate == STANDARD_AISTATE_ATTACK || self.aistate == STANDARD_AISTATE_ATTACK_FOLLOW || self.aistate == STANDARD_AISTATE_SEARCH)
       if (self.eqleft >= ITEM_BOW && self.eqleft <= (ITEM_LONG_BOW+3))
         // search for quiver
         found = FALSE
@@ -697,7 +700,7 @@ int AIUseSpells()
 
   // offensive spells next
 
-  if (self.aistate == STANDARD_AISTATE_CHARGE || self.aistate == STANDARD_AISTATE_ATTACK || self.aistate == STANDARD_AISTATE_ATTACK_FOLLOW)
+  if (self.aistate == STANDARD_AISTATE_CHARGE || self.aistate == STANDARD_AISTATE_ATTACK || self.aistate == STANDARD_AISTATE_ATTACK_FOLLOW || self.aistate == STANDARD_AISTATE_SEARCH)
     self.target = AcquireTarget(ACQUIRE_SEE_ENEMY, NULL, 25.0)
     target = FindTarget()
     if(target)
@@ -805,7 +808,7 @@ int AIUseShield()
   if (mount)
     return FALSE
 
-  if (self.aistate == STANDARD_AISTATE_ATTACK || self.aistate == STANDARD_AISTATE_ATTACK_FOLLOW)
+  if (self.aistate == STANDARD_AISTATE_ATTACK || self.aistate == STANDARD_AISTATE_ATTACK_FOLLOW || self.aistate == STANDARD_AISTATE_SEARCH)
     if ((self.eqleft & 248) == ITEM_SHIELD && RollDice(1, 15) < 3)
       target = FindTarget()
       if(target)

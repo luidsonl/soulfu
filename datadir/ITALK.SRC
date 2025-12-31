@@ -3,6 +3,7 @@
 #define EXPR_FOLLOW   3
 #define EXPR_STAND    5
 #define EXPR_THROUGH  7
+#define EXPR_SEARCH   9
 
 //-----------------------------------------------------------------------
 int GetName()
@@ -17,7 +18,7 @@ int ExpressionFromAxis(int axis)
   if((axis & AXIS_DOWN) && (axis & AXIS_LEFT))
     return 6
   if((axis & AXIS_UP) && (axis & AXIS_LEFT))
-    return 8
+    return 9
   if(axis & AXIS_UP)
     return 1
   if(axis & AXIS_RIGHT)
@@ -56,6 +57,8 @@ int Event()
       //  child.image = "FILE:=EXCLAIM.RGB"
       if(expression == EXPR_THROUGH)
         child.image = "FILE:=THROUGH.RGB"
+      if(expression == EXPR_SEARCH)
+        child.image = "FILE:=SEARCH.RGB"
       //if(expression == 8)
       //  child.image = "FILE:=TOWN.RGB"
 
@@ -114,6 +117,21 @@ int Unpressed()
         if(target)
           if(target.aitimer > 0 && target.team == self.team)
             target.aistate = STANDARD_AISTATE_RALLY
+            target.aitimer = RollDice(1, 10)
+            target.aimode = count
+            target.target = FindIndex(self)
+            count++
+        i++
+
+    // Search for hearts
+    if(expression == EXPR_SEARCH)
+      count = 1
+      i = 0
+      while(i < MAX_CHARACTER)
+        target = FindByIndex(i)
+        if(target)
+          if(target.aitimer > 0 && target.team == self.team)
+            target.aistate = STANDARD_AISTATE_SEARCH
             target.aitimer = RollDice(1, 10)
             target.aimode = count
             target.target = FindIndex(self)
