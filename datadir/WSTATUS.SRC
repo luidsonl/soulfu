@@ -1163,7 +1163,7 @@ JustifyVertical(int self, int force)
   size = 2.0
   if(gem0)
     // Text stats window has fixed size...
-    size = 8.0
+    size = 9.0
   size = size + 0.75
   if(gem1)
     size = size+7.75
@@ -1600,7 +1600,7 @@ Refresh()
     size = 2
     if(gem0)
       // Text stats window has fixed size...
-      size = 8
+      size = 9.0
     y = 0.75+size
     if(gem1)
       y = y+7.75
@@ -1888,15 +1888,16 @@ Refresh()
       x = 1.0
       if(binding.statpts > 0)
         x = -0.5
-      WindowBorder(FALSE, -8.5, 0.0, 17, 8, BORDER_BOX)
+      WindowBorder(FALSE, -8.5, 0.0, 17, 9, BORDER_BOX)
       NumberString(binding.level, -1, 52, 13, 3.0, 0.0)
       // Stat points are next...
       NumberString(binding.exp, ExperienceFunction(self.binding, EXPERIENCE_GET_NEEDED, 1, FALSE), 53, 17, 1.0, 2.0)
-      NumberString(binding.hits, binding.hitsmax, 50, 17, x, 3.0)
-      NumberString(binding.mana, binding.manamax, 51, 17, x, 4.0)
-      NumberString(binding.str, -1, 59, 17, x, 5.0)
-      NumberString(binding.dex, -1, 60, 17, x, 6.0)
-      NumberString(binding.int, -1, 61, 17, x, 7.0)
+      NumberString(binding.food/(MAX_FOOD/100), 100, 330, 17, x, 3.0)
+      NumberString(binding.hits, binding.hitsmax, 50, 17, x, 4.0)
+      NumberString(binding.mana, binding.manamax, 51, 17, x, 5.0)
+      NumberString(binding.str, -1, 59, 17, x, 6.0)
+      NumberString(binding.dex, -1, 60, 17, x, 7.0)
+      NumberString(binding.int, -1, 61, 17, x, 8.0)
 
 
 
@@ -1951,18 +1952,18 @@ Refresh()
             ButtonSound()
           else
             BuzzerSound()
-        button2 = ButtonImage(button2, 15.5, 3.0, 2.0, 1.0, "+")
+        button2 = ButtonImage(button2, 15.5, 4.0, 2.0, 1.0, "+")
         if(binding.manamax == 0 && binding.manacst > 1)
           StringClear(String(0))
           StringAppendNumber(String(0), binding.manacst, 5)
-          button3 = ButtonImage(button3, 15.5, 4.0, 2.0, 1.0, String(0))
+          button3 = ButtonImage(button3, 15.5, 5.0, 2.0, 1.0, String(0))
         else
-          button3 = ButtonImage(button3, 15.5, 4.0, 2.0, 1.0, "+")
-        button4 = ButtonImage(button4, 15.5, 5.0, 2.0, 1.0, "+")
-        button5 = ButtonImage(button5, 15.5, 6.0, 2.0, 1.0, "+")
-        button6 = ButtonImage(button6, 15.5, 7.0, 2.0, 1.0, "+")
+          button3 = ButtonImage(button3, 15.5, 5.0, 2.0, 1.0, "+")
+        button4 = ButtonImage(button4, 15.5, 6.0, 2.0, 1.0, "+")
+        button5 = ButtonImage(button5, 15.5, 7.0, 2.0, 1.0, "+")
+        button6 = ButtonImage(button6, 15.5, 8.0, 2.0, 1.0, "+")
         if(joy_mode && joy_y < 5)
-          DrawStatHighlight(16.5, 3.5 + joy_y, 0.7, 0.4, 0.7, timer, WHITE)
+          DrawStatHighlight(16.5, 4.5 + joy_y, 0.7, 0.4, 0.7, timer, WHITE)
           if(!SystemGet(SYS_LOCALPLAYERINPUT, player, PLAYER_DEVICE_BUTTON_ITEMS_DOWN))
             if(joy_hit < 4)
               if(joy_y == 0)

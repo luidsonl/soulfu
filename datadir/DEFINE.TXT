@@ -22,7 +22,7 @@
 #define MAX_CHARACTER 128
 #define MAX_PARTICLE 4096
 #define MAX_MAP_ROOM 4000
-#define MAX_FOOD     65535
+#define MAX_FOOD     60000
 #define MAX_MONEY    10000
 #define MAX_KEYS     25
 #define RED_HEART    0
