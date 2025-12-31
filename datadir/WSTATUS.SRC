@@ -1892,7 +1892,7 @@ Refresh()
       NumberString(binding.level, -1, 52, 13, 3.0, 0.0)
       // Stat points are next...
       NumberString(binding.exp, ExperienceFunction(self.binding, EXPERIENCE_GET_NEEDED, 1, FALSE), 53, 17, 1.0, 2.0)
-      NumberString(binding.food/(MAX_FOOD/100), 100, 330, 17, x, 3.0)
+      NumberString((binding.food/(MAX_FOOD/100) + 1), 100, 330, 17, x, 3.0)
       NumberString(binding.hits, binding.hitsmax, 50, 17, x, 4.0)
       NumberString(binding.mana, binding.manamax, 51, 17, x, 5.0)
       NumberString(binding.str, -1, 59, 17, x, 6.0)

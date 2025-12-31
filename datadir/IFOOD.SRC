@@ -5,12 +5,14 @@ int GetName()
 //-----------------------------------------------------------------------
 // What this item does when used...
 int Effect(int self)
+  int foodValue
+    foodValue = 34000  
   if(self)
     PlaySound("FILE:-EAT.RAW", 256, 255)
     if(self.food > 0)
-      // Feed the character...
-      self.food = self.food + 34000
-      if(self.food > MAX_FOOD)
+      if((MAX_FOOD - self.food) > foodValue)
+        self.food = self.food + foodValue
+      else
         self.food = MAX_FOOD
 
 //-----------------------------------------------------------------------
