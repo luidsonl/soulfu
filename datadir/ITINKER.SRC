@@ -224,7 +224,7 @@ int Unpressed()
 
 
         if(expression == 1)
-          worked = GiveItemToCharacter(self, ITEM_AMMO_50)
+          worked = GiveItemToCharacter(self, ITEM_AMMO_10)
         if(expression == 2)
           worked = GiveItemToCharacter(self, ITEM_GONNE)
         if(expression == 3)

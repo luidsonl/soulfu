@@ -653,9 +653,9 @@ int DropItemsHelper(int slot, int do_drop, float vx, float vy)
 
   self = FindSelf()
   item_type = FileReadByte(self, slot)
-  if(item_type >= ITEM_QUIVER_50 && item_type <= ITEM_QUIVER_3)
+  if(item_type >= ITEM_QUIVER_10 && item_type <= ITEM_QUIVER_3)
     if(do_drop)
-      PDROP.Effect(self.x, self.y, self.z+2.0, vx, vy, 0.5, 2.0, "FILE:=DRPQUIV.RGB", ITEM_QUIVER_50)
+      PDROP.Effect(self.x, self.y, self.z+2.0, vx, vy, 0.5, 2.0, "FILE:=DRPQUIV.RGB", ITEM_QUIVER_10)
       FileWriteByte(self, slot, ITEM_NONE)
     return TRUE
   if(item_type == ITEM_MEAT_ROTTEN)
@@ -1095,11 +1095,11 @@ int AutoReload(int self, int grip)
   // Some items have a range to search
   item_low = item_type
   item_high = item_type
-  if(item_type >= ITEM_QUIVER_50 && item_type <= ITEM_QUIVER_1)
-    item_low = ITEM_QUIVER_50
+  if(item_type >= ITEM_QUIVER_10 && item_type <= ITEM_QUIVER_1)
+    item_low = ITEM_QUIVER_10
     item_high = ITEM_QUIVER_1
-  if(item_type >= ITEM_AMMO_50 && item_type <= ITEM_AMMO_1)
-    item_low = ITEM_AMMO_50
+  if(item_type >= ITEM_AMMO_10 && item_type <= ITEM_AMMO_1)
+    item_low = ITEM_AMMO_10
     item_high = ITEM_AMMO_1
 
 

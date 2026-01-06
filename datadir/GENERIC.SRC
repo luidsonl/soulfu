@@ -427,9 +427,9 @@ int CharacterHasItem(int target, int item, int remove_it)
   // Look for it...
   low = item
   high = item
-  if(item == ITEM_QUIVER_50)
+  if(item == ITEM_QUIVER_10)
     high = ITEM_QUIVER_1
-  if(item == ITEM_AMMO_50)
+  if(item == ITEM_AMMO_10)
     high = ITEM_AMMO_1
   slot = 224
   while(slot < 248)

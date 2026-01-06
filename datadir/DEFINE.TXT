@@ -1235,7 +1235,7 @@
 #define ITEM_TINKER           7
 #define ITEM_GONNE            8
 #define ITEM_GRONNADE         9
-#define ITEM_QUIVER_50       10
+#define ITEM_QUIVER_10       10
 #define ITEM_QUIVER_9        11
 #define ITEM_QUIVER_8        12
 #define ITEM_QUIVER_7        13
@@ -1245,7 +1245,7 @@
 #define ITEM_QUIVER_3        17
 #define ITEM_QUIVER_2        18
 #define ITEM_QUIVER_1        19
-#define ITEM_AMMO_50         20
+#define ITEM_AMMO_10         20
 #define ITEM_AMMO_9          21
 #define ITEM_AMMO_8          22
 #define ITEM_AMMO_7          23

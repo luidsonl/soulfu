@@ -44,9 +44,9 @@ RowIcon(float x, float y, int offset, int openfile, int allow_copy, int allow_al
     if(!allow_all)
       if(item == ITEM_NONE)
         item--
-      if(item >= ITEM_QUIVER_50 && item <= ITEM_AMMO_1)
+      if(item >= ITEM_QUIVER_10 && item <= ITEM_AMMO_1)
         // Item is ammo of some sort
-        item = item - ((item-ITEM_QUIVER_50) % 10)
+        item = item - ((item-ITEM_QUIVER_10) % 10)
       if(item >= ITEM_DAGGER && item <= (ITEM_WAR_HAMMER+7))
         // Item is a weapon
         item = (item & 248)
@@ -61,10 +61,10 @@ RowIcon(float x, float y, int offset, int openfile, int allow_copy, int allow_al
     if(!allow_all)
       if(item == ITEM_NONE)
         item++
-      if(item >= ITEM_QUIVER_50 && item <= ITEM_AMMO_1)
+      if(item >= ITEM_QUIVER_10 && item <= ITEM_AMMO_1)
         // Item is ammo of some sort
-        if(((item - ITEM_QUIVER_50) % 10) > 0)
-          item = item - ((item-ITEM_QUIVER_50) % 10) + 10
+        if(((item - ITEM_QUIVER_10) % 10) > 0)
+          item = item - ((item-ITEM_QUIVER_10) % 10) + 10
       if(item >= ITEM_DAGGER && item <= (ITEM_WAR_HAMMER+7))
         // Item is a weapon
         item = (item & 248) + 8
